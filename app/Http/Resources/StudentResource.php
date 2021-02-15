@@ -17,7 +17,19 @@ class StudentResource extends JsonResource
         // return parent::toArray($request);
         return [
             'full_name' => $this->full_name,
-            'nama_kelas' => $this->classroom->name
+            'nama_kelas' => $this->classroom->name,
+            'status' => $this->identification()
         ];
+    }
+
+    private function identification()
+    {
+        $for_result = $this->full_name;
+        if($for_result == 'Zhalun' || $for_result == 'Rizal Ihwan Sulaiman')
+        {
+            return "SI GANTENG INIMAH";
+        } else {
+            return "JELEK!";
+        }
     }
 }
